@@ -272,7 +272,7 @@ These were added during revision and are now numbered by first appearance. Metad
 - [x] Citation check: all 50 references verified, renumbered, 14 metadata fixes (`CANTUS-Citation-Report.md`)
 - [x] Search for leftover "resolved", "arbitrary" or "no representation" wording (only the narrowed G2 claim remains, as intended)
 - [x] Table II Quality/Licence columns: dropped by decision (E5)
-- [ ] In the docx: paste Figures 1–3 above their captions, and update Fig. 1 to 181 → 181 → 168 → 150 → 28
-- [ ] **Regenerate Fig. 2** (`fig2.png`, studies by theme and year): it still shows the old 25-study set, since its bars sum to 25, not 28
+- [x] Regenerate Fig. 1 (PRISMA 2020 flow, 181 → 168 → 150 → 28) and Fig. 2 (28 studies by theme and year): `python tools/make_figures.py` writes `figures/fig1.png` and `figures/fig2.png`
+- [ ] In the docx: paste Figures 1–3 above their captions
 - [ ] Optional: re-run the six ISMIR queries for 2026 records (no ISMIR export was saved)
 - [ ] Optional, not agreed: §VI-B gives Tier 1 "annotation confidence 1.0", slightly at odds with the editorial WTC labels. Possible wording: "1.0 where voices are composer-given or hand-verified".
