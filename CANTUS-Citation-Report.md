@@ -55,7 +55,7 @@ The references added during revision ([41]–[49] in the previous numbering) are
 
 [1]–[12] are unchanged. Table II rows were re-sorted by the new numbers.
 
-> `CANTUS-REVISIONS.md` still uses the **old** numbering. Treat it as a historical record; the revised paper is now the source of truth.
+> `CANTUS-REVISIONS.md` was updated on 27 September 2026 to the **new** numbering; only its quotes marked *Original* keep old numbers. The revised paper remains the source of truth.
 
 ### B. Reference metadata (new numbering)
 

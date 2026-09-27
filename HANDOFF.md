@@ -20,7 +20,7 @@ The user is a student at APIIT School of Computing, Colombo. The paper is **thei
 | `CANTUS-Research-Paper.md` / `.docx` | **Original** pre-review versions. Keep the .docx: it is the style template the converter reads. |
 | `screening-log.md` | PRISMA log. Updated with the revision pass, per-record decisions for 37 re-screened records, the final 28 included studies, and **new reference numbering**. |
 | `CANTUS-Review-Report.md` | Simulated 5-reviewer peer review (outcome: Major Revision). |
-| `CANTUS-REVISIONS.md` | Edit-by-edit revision instructions (E1–E14). **Historical: uses OLD reference numbers.** Don't paste from it any more. |
+| `CANTUS-REVISIONS.md` | Record of the revision edits (E1–E14), all applied. Final text uses the **new** numbering and matches the revised .md verbatim; only quotes marked *Original* keep old numbers. |
 | `CANTUS-Citation-Report.md` | IEEE citation audit, including the **old → new reference number mapping**. |
 | `rescreening-sheet.md` | Working sheet: abstracts for the 37 re-screened records (decisions now live in the screening log). |
 | `acm.bib`, `IEEE Xplore Citation Plain Text Download 2026.9.12.22.35.40.txt`, `arxiv/*.html` | Raw search exports (all saved 12 September 2026). There is **no ISMIR export**. |
@@ -86,7 +86,7 @@ python tools/md2ieee.py
 
 ## Gotchas for the next session
 
-- **Two numbering schemes exist.** `CANTUS-REVISIONS.md` and the original `CANTUS-Research-Paper.md` use the old reference numbers. The revised .md and .docx, `screening-log.md` and `CANTUS-Citation-Report.md` use the **new** ones. The mapping table is in the citation report.
+- **Two numbering schemes exist.** The original `CANTUS-Research-Paper.md` uses the old reference numbers (as do the *Original* quotes in `CANTUS-REVISIONS.md`). The revised .md and .docx, `CANTUS-REVISIONS.md`'s final text, `screening-log.md` and `CANTUS-Citation-Report.md` use the **new** ones. The mapping table is in the citation report.
 - **Edit the .md, then rerun the converter.** Don't hand-edit the generated docx if the text may change again; changes would be lost on rebuild.
 - **No visual render is possible on this machine:** there's no LibreOffice or Word COM, and pdftoppm is missing. Docx checks have been structural only (the validator passes; all 8 sections, 6 tables, 3 captions and 50 references are present). Ask the user to eyeball it in Word.
 - **Tables are sized to one IEEE column (5040 DXA ≈ 3.5″).** Table II (28 rows) may break across a column. That's acceptable, and its header row repeats.
