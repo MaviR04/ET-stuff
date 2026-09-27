@@ -1,12 +1,12 @@
 # CANTUS: Revision Edits (E1–E14)
 
-Record of the edits made in response to the simulated peer review (`CANTUS-Review-Report.md`). Each edit gives the **location**, the **original text** where relevant, and the **final text** as it now appears in the paper.
+Record of the edits made in response to the simulated peer review (`CANTUS-Review-Report.md`). Each edit gives the location, the original text where relevant, and the final text as it now appears in the paper.
 
 **Status (27 September 2026): all edits are applied.**
 - The source of truth is `CANTUS-Research-Paper-revised.md`. `CANTUS-Research-Paper-revised.docx` is generated from it with `python tools/md2ieee.py`.
 - Every `[TODO]` has been filled and every `[VERIFY]` claim confirmed; none remain in the paper.
-- **Numbering:** all citations in the final text below use the **new** IEEE numbering (order of first appearance, 50 references), matching the revised paper, `screening-log.md` and `CANTUS-Citation-Report.md`.
-- Quotes marked *Original* come from the pre-review `CANTUS-Research-Paper.md` and keep its **old** numbers. The old → new mapping is in `CANTUS-Citation-Report.md`, §A.
+- **Numbering:** all citations in the final text below use the new IEEE numbering (order of first appearance, 50 references), matching the revised paper, `screening-log.md` and `CANTUS-Citation-Report.md`.
+- Quotes marked *Original* come from the pre-review `CANTUS-Research-Paper.md` and keep its old numbers. The old → new mapping is in `CANTUS-Citation-Report.md`, §A.
 
 ---
 
@@ -24,7 +24,7 @@ Record of the edits made in response to the simulated peer review (`CANTUS-Revie
 
 > This review synthesized 28 primary studies selected under PRISMA 2020. The field has substantially mitigated its most-discussed problems: compound representations eased the trade-off between metrical stability and sequence length, although sub-token decoding order remains an active concern [9], [10], and attention cost is no longer the main limit on long-form generation. What remains is a representational omission with measurement consequences. None of the widely used general-purpose tokenizers supplies a generative model with the line a note belongs to, although source formats carry it and transcription systems predict it. Earlier chorale models ordered notes by voice, but only under a fixed four-voice assumption [3], [21]–[23]. As a result, simultaneous notes are ordered by pitch rather than by line, existing remedies fuse lines rather than recover them, and voice-leading cannot be evaluated on generated output in the representations the field now uses.
 
-**§VIII, second paragraph:** the optional wording was applied: "…to address the four that sustain one another, centred on a representation that handles a changing number of voices, …".
+**§VIII, second paragraph:** now includes the optional wording "…to address the four that sustain one another, centred on a representation that handles a changing number of voices, …".
 
 ---
 
@@ -60,7 +60,7 @@ Record of the edits made in response to the simulated peer review (`CANTUS-Revie
 
 ### E3b. §VI-A, BPE sentence
 
-Handled inside the E9 rewrite: BPE savings are now a Stage 1 hypothesis, not a claim.
+Handled in the E9 rewrite, which turns the BPE saving into a Stage 1 hypothesis.
 
 ---
 
@@ -86,14 +86,14 @@ Handled inside the E9 rewrite: BPE savings are now a Stage 1 hypothesis, not a c
 
 > The four sources identified 181 records, all of which were retrieved. Removing 13 duplicates left 168 records for screening. Title and abstract screening excluded 18 (2 front matter, 16 off-topic), leaving 150 full texts. Of these, 122 were excluded: 14 audio-only; 88 non-generative, or applying an existing representation without proposing, comparing or evaluating one; 8 secondary reviews; 7 superseded versions; 2 on re-application of the final criteria (Section III-C); and 3 records first excluded on date, which were re-screened after the window was extended and excluded on topical grounds. 28 studies were included (Fig. 1).
 
-**Fig. 1 numbers:** 181 identified → 181 retrieved → 13 duplicates removed → **168 screened** → 18 excluded → **150 full texts** → 122 excluded → **28 included**.
+**Fig. 1 numbers:** 181 identified → 181 retrieved → 13 duplicates removed → 168 screened → 18 excluded → 150 full texts → 122 excluded → 28 included.
 
 *How these were derived (details in `screening-log.md`):*
-- The 9 missing arXiv records were retrieved. 1 duplicated [19], so duplicates rose from 12 to 13; of the 8 new records, 7 were excluded at full text and 1 (DadaGP) was included.
+- The 9 missing arXiv records were retrieved. One duplicated [19], raising duplicates from 12 to 13. Of the other 8, seven were excluded at full text and DadaGP was included.
 - The "outside window" category no longer exists, so its 6 records went to full-text assessment.
 - **Assumption:** those 6 are taken to include Libretto, Agogic and Token Granularity, which are post-February 2026 records with no other recorded exclusion reason. That leaves 3 excluded on re-screening. The totals (168 screened, 140 excluded, 28 included) hold regardless; only the split between exclusion stages depends on this assumption. It is stated in the log and in §VII.
 - The "non-generative or applies an existing representation" category stays combined, since no per-record decisions exist to split it. It is relabelled so both reasons are explicit, and it grew from 82 to 88: +7 new arXiv exclusions, −1 for MuseTok (now included).
-- Net change in included studies: 25 − 2 ([20] PianoTree VAE, [29] MidiTok) + 5 (Libretto, Agogic, MuseTok, DadaGP, Token Granularity) = **28**.
+- Net change in included studies: 25 − 2 ([20] PianoTree VAE, [29] MidiTok) + 5 (Libretto, Agogic, MuseTok, DadaGP, Token Granularity) = 28.
 
 ### E4d. §III-E, appraisal sentence
 
@@ -103,7 +103,7 @@ Handled inside the E9 rewrite: BPE savings are now a Stage 1 hypothesis, not a c
 
 > Quality was banded high, medium or low on protocol clarity, dataset provenance, human assessment and reproducibility. Bands were used to weight findings rather than to exclude studies: where studies disagreed, or a finding rested on a single study, the higher-band evidence was given precedence and single low-band findings are flagged as tentative in the text.
 
-*(The draft pointed to Table II here; the pointer was dropped with the Quality column, see E5.)*
+*(The draft pointed to Table II here. The pointer went when the Quality column was dropped; see E5.)*
 
 ---
 
@@ -120,7 +120,7 @@ Handled inside the E9 rewrite: BPE savings are now a Stage 1 hypothesis, not a c
 | [28] | Agogic: seven-tokenization comparison; PMT stream | No (track/program) | Chords ordered by pitch |
 | [36] | Token granularity comparison | No | Understanding, not generation |
 
-- **Dropped at the user's request:** the proposed "Quality" and "Licence reported" columns. They were judged unnecessary for coursework. The table keeps four columns: Ref., Principal contribution, Voice encoded, Key limitation.
+- **Not added:** the proposed "Quality" and "Licence reported" columns. The user dropped them as unnecessary for coursework, so the table keeps four columns: Ref., Principal contribution, Voice encoded, Key limitation.
 
 ---
 
@@ -152,7 +152,7 @@ Handled inside the E9 rewrite: BPE savings are now a Stage 1 hypothesis, not a c
 
 > *Rating rule:* **Strong** means the family's included studies report this capability as a design goal and demonstrate it empirically. **Moderate** means it is demonstrated with qualifications or partial support. **Weak/Limited** means it is not a design goal and reported results show a disadvantage or no support. **Absent** means the capability is not representable. *Sources by family:* Event [11], [14], [28]; Grid [5], [34], [36], [45]; Compound [8]–[10]; Step [12]; Text [25], [27].
 
-Each cell was checked against the listed sources (confirmed by the user).
+The user checked each cell against the listed sources.
 
 ### E6e. Table V, "Evidence" column, and Table III
 
@@ -182,13 +182,13 @@ Each cell was checked against the listed sources (confirmed by the user).
 
 > **G1: Voice identity is absent from the inputs of general-purpose tokenizers.** None of the widely used general-purpose tokenizers (REMI, Compound Word, Octuple, and their MidiTok implementations) supplies the melodic line of a note as an input field [5], [18], [28], [30], [33]; formats as introduced in [6], [7]. Voice has been supplied as input only in four-part chorale models, as fixed sequence positions, separate per-voice sequences or separate channels [3], [21]–[23], and never as a token field that allows the number of voices to change. The closest recent case, Libretto, labels note blocks by voice, but its voices are tracks declared once per piece [27]. MIDI-to-score conversion already predicts staff assignment and stem direction, which in piano notation encode voice membership [42], and cross-modal translation operates on notation-level structure [43]. Line identity is thus predictable, and predicted as *output*, but in current general-purpose tokenizers it is not supplied to a generative model as *input*, which must instead re-infer it from pitch proximity.
 
-The check that [30] and [33] describe their tokenizations in enough detail to support this was confirmed by the user.
+The user confirmed that [30] and [33] describe their tokenizations in enough detail to support this.
 
 ### E8b. G2 (whole paragraph replaced)
 
 > **G2: No widely used tokenizer orders simultaneous notes by persistent voice, and existing remedies collapse lines further.** General-purpose tokenizers order simultaneous notes deterministically, typically by pitch; in the controlled comparison of [28], for example, ties are broken "by ascending pitch so that chord tones follow a canonical low-to-high order". But pitch order changes whenever voices cross, so it does not follow lines. Polyphonic piano needs over ten times as many BPE merges as monophonic music [32], although how much of that cost is due to ordering is unknown. Permutation-invariant modelling [19] and step-based grouping [12] address ordering by treating the vertical slice as unordered or fused. The Music Transformer's chorale serialization did order notes by persistent voice [3], but only for a fixed set of four voices, each sounding in every time step. No representation orders notes by persistent voice when voices enter, drop out or change in number.
 
-*(Agogic [28] states the pitch-ordering rule directly; quote verified from arXiv:2608.03999, Section 3. The earlier plan to check MidiTok's behaviour is no longer needed.)*
+*(Agogic [28] states the pitch-ordering rule directly; quote verified from arXiv:2608.03999, Section 3. That made the planned check of MidiTok's behaviour unnecessary.)*
 
 ---
 
@@ -210,7 +210,7 @@ The check that [30] and [33] describe their tokenizations in enough detail to su
 
 > **Stage 1, representation pilot:** train matched models on the fugues of J.S. Bach's *Well-Tempered Clavier* in David Huron's Humdrum encoding, which places each voice of all 48 fugues on its own spine [50], and test on *The Art of Fugue*, a held-out work by the same composer in which voices enter one by one and thin out in episodes and at cadences. Three arms are compared: a voice-blind compound baseline; a fixed-slot baseline that assigns a fixed number of voice positions in the manner of chorale models [3]; and CANTUS with voice-state flags. Measures are held-out likelihood on the shared pitch, duration and onset fields (so that models predicting extra voice fields are not penalized), rule-violation counts and post-BPE sequence length. Because the *Well-Tempered Clavier* is keyboard music, its voice labels come from an editor, not the composer. A stratified sample of 10 fugues (about 20%), drawn from both books and covering every voice count from the two-voice E minor fugue (BWV 855) to the five-voice C♯ minor and B♭ minor fugues (BWV 849, 867), is hand-checked against persistent lines before training, and the agreement rate is reported. *The Art of Fugue*, written in open score, provides composer-given voices for testing. The stage is cheap and falsifiable: if CANTUS improves neither likelihood nor conformance over the fixed-slot baseline, the claimed value of variable voice handling fails.
 
-The former TODOs are filled: the edition is cited as [50], and the sample is 10 stratified fugues. The check that a voice-separated WTC encoding exists was confirmed: the Humdrum edition puts each voice on its own spine.
+Both TODOs are filled: the edition is cited as [50], and the sample is 10 stratified fugues. The Humdrum edition puts each voice on its own spine, which confirms that a voice-separated WTC encoding exists.
 
 ---
 
@@ -230,7 +230,7 @@ The former TODOs are filled: the edition is cited as [50], and the sample is 10 
 - the corrected flow,
 - per-record decisions for the 37 re-screened records,
 - the 28 included studies,
-- the source distribution: **arXiv 17, ACM 6, IEEE 4, ISMIR 1**.
+- the source distribution: arXiv 17, ACM 6, IEEE 4, ISMIR 1.
 
 ---
 
