@@ -1,8 +1,8 @@
 # CANTUS: Revision Edits (E1–E14)
 
-Record of the edits made in response to the simulated peer review (`CANTUS-Review-Report.md`). Each edit gives the location, the original text where relevant, and the final text as it now appears in the paper.
+Record of the edits made in response to the simulated peer review (`CANTUS-Review-Report.md`) and to supervisor feedback (E15–E16). Each edit gives the location, the original text where relevant, and the final text as it now appears in the paper.
 
-**Status (27 September 2026): all edits are applied.**
+**Status (27 September 2026): E1–E14 are applied. E15–E16, from supervisor feedback, are proposed and not yet in the paper.**
 - The source of truth is `CANTUS-Research-Paper-revised.md`. `CANTUS-Research-Paper-revised.docx` is generated from it with `python tools/md2ieee.py`.
 - Every `[TODO]` has been filled and every `[VERIFY]` claim confirmed; none remain in the paper.
 - **Numbering:** all citations in the final text below use the new IEEE numbering (order of first appearance, 50 references), matching the revised paper, `screening-log.md` and `CANTUS-Citation-Report.md`.
@@ -263,6 +263,46 @@ These were added during revision and are now numbered by first appearance. Metad
 
 ---
 
+## E15: Abstract, add a statistic (supervisor feedback)
+
+**Location:** abstract, the sentence beginning "It also shows that none of the widely used general-purpose tokenizers…".
+
+*Current:* "It also shows that none of the widely used general-purpose tokenizers supplies voice identity to a generative model as an input field, and that no included study measures whether generated polyphony observes voice-leading convention."
+
+**Proposed:**
+
+> It also shows that none of the widely used general-purpose tokenizers supplies voice identity to a generative model as an input field. Of the 28 included studies, 21 encode no voice information at all, and none measures whether generated polyphony observes voice-leading convention.
+
+- **Source of the figure:** Table II, "Voice encoded" column. 21 rows read "No", including [28] "No (track/program)". The other seven are marked by instrument, track, staff, output only, notation-level or format-dependent: [14], [18], [25], [27], [42], [43], [44].
+- **Length:** the abstract grows from 202 to 209 words, within IEEE's 150–250.
+- **Optional second statistic:** the growth figure from E16b ("23 of them (82%) published in 2023 or later") could follow "…28 primary studies were synthesized". Leaving it out keeps the abstract to one statistic.
+
+---
+
+## E16: §I, more domain context (supervisor feedback)
+
+### E16a. §I, first paragraph (add at the end)
+
+**Location:** after "…rules governing how such lines may move against one another."
+
+**Proposed:**
+
+> In a four-part chorale the lines are soprano, alto, tenor and bass. In a fugue they enter one at a time, and in piano music one hand often carries two.
+
+### E16b. §I, new third paragraph
+
+**Location:** between the paragraph ending "…relative attention made minute-long coherent generation achievable [3]." and the paragraph beginning "This paper argues that serialization discards one property that matters."
+
+**Proposed:**
+
+> The field has grown quickly. Of the 28 studies included in this review, 23 (82%) were published in 2023 or later. Large language models now read and write text-based notation [25], [27], [28], and MuPT reports that performance scales with model size and training data [25]. Score collections reach hundreds of thousands of pieces, with MetaScore holding roughly 963,000 [26]. MidiTok packages the common tokenizers, including REMI, Compound Word and Octuple, in one open library [29]. Symbolic output is notation, so a composer or arranger can edit, orchestrate and publish it directly. What a tokenizer records about a score therefore limits what these tools can learn and what their users can control.
+
+- **Sources:** every claim restates something the paper already cites later: MuPT's scaling law and text-native formats (§II-D), MetaScore's size (§IV-C-1), MidiTok (§II-E, G1), and editable symbolic output (§IV-C-2). The 23-of-28 figure comes from the Fig. 2 data, counting the year of the cited version (so REMI-z [18] counts as 2025).
+- **Consequence for numbering:** these citations would appear in §I, before [5]. IEEE numbers references by first appearance, so applying E16b as written moves [25]–[29] to [5]–[9] and shifts the old [5]–[24] to [10]–[29]. The paper, Table II, `screening-log.md`, `CANTUS-Citation-Report.md` and this file would all need renumbering, which is mechanical but touches every section.
+- **Alternative without renumbering:** replace the citations with section pointers, for example "Large language models now read and write text-based notation (Section II-D)…". This keeps the numbering stable, but uncited claims in the introduction are weaker than cited ones.
+
+---
+
 ## Remaining checks before submission
 
 - [x] Re-screen March–September 2026 records (37 records; decisions in `screening-log.md`)
@@ -273,6 +313,7 @@ These were added during revision and are now numbered by first appearance. Metad
 - [x] Search for leftover "resolved", "arbitrary" or "no representation" wording (only the narrowed G2 claim remains, as intended)
 - [x] Table II Quality/Licence columns: dropped by decision (E5)
 - [x] Regenerate Fig. 1 (PRISMA 2020 flow, 181 → 168 → 150 → 28) and Fig. 2 (28 studies by theme and year): `python tools/make_figures.py` writes `figures/fig1.png` and `figures/fig2.png`
+- [ ] Apply E15 and E16 to `CANTUS-Research-Paper-revised.md` (decide first: E16b with citations and renumbering, or with section pointers), then rebuild the docx
 - [ ] In the docx: paste Figures 1–3 above their captions
 - [ ] Optional: re-run the six ISMIR queries for 2026 records (no ISMIR export was saved)
 - [ ] Optional, not agreed: §VI-B gives Tier 1 "annotation confidence 1.0", slightly at odds with the editorial WTC labels. Possible wording: "1.0 where voices are composer-given or hand-verified".
